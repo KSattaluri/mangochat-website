@@ -287,7 +287,8 @@ a:hover { color: var(--accent-hover); }
 
 .visualizer__transcript-row {
   min-height: 28px;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
   align-items: center;
   gap: 0.6rem;
 }
@@ -313,14 +314,16 @@ a:hover { color: var(--accent-hover); }
 }
 
 .visualizer__transcript {
-  display: flex;
-  align-items: center;
+  display: block;
+  width: 100%;
+  min-width: 0;
   font-family: var(--font-body);
   font-size: 0.95rem;
   color: var(--vis-text);
   letter-spacing: 0.01em;
   white-space: nowrap;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .visualizer__transcript--tagline {
