@@ -281,8 +281,9 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    const TAGLINE = 'Upgrade your workflow for AI era...';
+    const TAGLINE = 'Upgrade workflow for AI';
     const TAGLINE_PAUSE = 1500;
+    const IS_MOBILE = window.matchMedia('(max-width: 768px)').matches;
 
     function showTagline(onDone) {
       clearTranscript();
@@ -291,6 +292,15 @@ document.addEventListener('DOMContentLoaded', () => {
         categoryEl.textContent = '';
         categoryEl.classList.remove('fade-out');
         transcriptEl.classList.add('visualizer__transcript--tagline');
+        if (IS_MOBILE) {
+          transcriptEl.textContent = TAGLINE;
+          setTimeout(() => {
+            transcriptEl.classList.remove('visualizer__transcript--tagline');
+            clearTranscript();
+            onDone();
+          }, TAGLINE_PAUSE);
+          return;
+        }
         ensureCursor();
         typeString(TAGLINE, () => {
           setTimeout(() => {
