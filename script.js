@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
         label: 'Coding',
         icon: icons.coding,
         items: [
-          { prefix: 'Directly interact with ', suffixes: ['Codex', 'Claude', 'Cursor', 'VS Code'] }
+          { prefix: 'Interact with ', suffixes: ['Codex', 'Claude', 'Cursor', 'VS Code'] }
         ]
       }
     ];
