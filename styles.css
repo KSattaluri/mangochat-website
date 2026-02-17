@@ -329,6 +329,7 @@ a:hover { color: var(--accent-hover); }
 .visualizer__transcript--tagline {
   color: var(--accent);
   font-weight: 600;
+  font-size: 0.86rem;
 }
 
 .visualizer__cursor {
