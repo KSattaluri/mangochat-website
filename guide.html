@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MangoChat — Guide</title>
+  <meta name="description" content="Installation, configuration, and usage guide for MangoChat voice dictation.">
+  <meta name="theme-color" content="#FAFAF8">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>&#x1F96D;</text></svg>">
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="guide.css">
+</head>
+<body class="guide-body">
+
+  <!-- Top bar -->
+  <header class="top-bar">
+    <a href="index.html" class="top-bar__logo">
+      <span class="top-bar__logo-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FAFAF8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+      </span>
+      MangoChat
+    </a>
+    <nav class="top-bar__nav">
+      <a href="index.html">Home</a>
+      <a href="https://github.com/KSattaluri/mango-chat" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </header>
+
+  <div class="guide">
+    <!-- Sidebar -->
+    <aside class="guide__sidebar">
+      <nav class="guide__nav">
+        <a href="#about" class="guide__link active" data-section="about">About</a>
+        <a href="#download" class="guide__link" data-section="download">Download</a>
+        <a href="#installation" class="guide__link" data-section="installation">Installation</a>
+        <a href="#configuration" class="guide__link" data-section="configuration">Configuration</a>
+        <a href="#personalization" class="guide__link" data-section="personalization">Personalization</a>
+        <a href="#pricing" class="guide__link" data-section="pricing">Provider Pricing</a>
+        <a href="#known-issues" class="guide__link" data-section="known-issues">Known Issues</a>
+        <a href="#faq" class="guide__link" data-section="faq">FAQ</a>
+      </nav>
+    </aside>
+
+    <!-- Content -->
+    <main class="guide__content">
+
+      <!-- About -->
+      <section id="about" class="g-section">
+        <h2 class="g-section__title">About MangoChat</h2>
+        <div class="g-visualizer">
+          <div class="g-visualizer__btn g-visualizer__btn--record">
+            <span class="g-visualizer__btn-inner"></span>
+          </div>
+          <div class="g-visualizer__waveform">
+            <canvas id="waveformCanvas"></canvas>
+          </div>
+          <div class="g-visualizer__btn g-visualizer__btn--settings">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.012 2.25c.734.008 1.465.093 2.182.253a.75.75 0 0 1 .582.649l.17 1.527a1.384 1.384 0 0 0 1.927 1.116l1.4-.615a.75.75 0 0 1 .85.174a9.8 9.8 0 0 1 2.205 3.792a.75.75 0 0 1-.272.825l-1.241.916a1.38 1.38 0 0 0 0 2.226l1.243.915a.75.75 0 0 1 .272.826a9.8 9.8 0 0 1-2.204 3.792a.75.75 0 0 1-.849.175l-1.406-.617a1.38 1.38 0 0 0-1.926 1.114l-.17 1.526a.75.75 0 0 1-.571.647a9.5 9.5 0 0 1-4.406 0a.75.75 0 0 1-.572-.647l-.169-1.524a1.382 1.382 0 0 0-1.925-1.11l-1.406.616a.75.75 0 0 1-.85-.175a9.8 9.8 0 0 1-2.203-3.796a.75.75 0 0 1 .272-.826l1.243-.916a1.38 1.38 0 0 0 0-2.226l-1.243-.914a.75.75 0 0 1-.272-.826a9.8 9.8 0 0 1 2.205-3.792a.75.75 0 0 1 .85-.174l1.4.615a1.387 1.387 0 0 0 1.93-1.118l.17-1.526a.75.75 0 0 1 .583-.65q1.074-.238 2.201-.252m0 1.5a9 9 0 0 0-1.354.117l-.11.977A2.886 2.886 0 0 1 6.526 7.17l-.899-.394A8.3 8.3 0 0 0 4.28 9.092l.797.587a2.88 2.88 0 0 1 .001 4.643l-.799.588c.32.842.776 1.626 1.348 2.322l.905-.397a2.882 2.882 0 0 1 4.017 2.318l.109.984c.89.15 1.799.15 2.688 0l.11-.984a2.88 2.88 0 0 1 4.018-2.322l.904.396a8.3 8.3 0 0 0 1.348-2.318l-.798-.588a2.88 2.88 0 0 1-.001-4.643l.797-.587a8.3 8.3 0 0 0-1.348-2.317l-.897.393a2.884 2.884 0 0 1-4.023-2.324l-.109-.976a9 9 0 0 0-1.334-.117M12 8.25a3.75 3.75 0 1 1 0 7.5a3.75 3.75 0 0 1 0-7.5m0 1.5a2.25 2.25 0 1 0 0 4.5a2.25 2.25 0 0 0 0-4.5"/></svg>
+          </div>
+        </div>
+        <p class="g-about__tagline">Totally free, open-source, lightweight, AI-powered voice productivity app for Windows.</p>
+        <p>Written in <strong>Rust</strong> with extremely low memory usage, MangoChat skips local models like Whisper, Chromium-based transcription, and Windows native speech recognition. Instead, it streams your audio directly to your chosen cloud speech-to-text providers for <strong>ultra-low-latency</strong> results.</p>
+        <div class="g-about__callout">
+          <span class="g-about__callout-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10s10-4.477 10-10S17.523 2 12 2m-1.5 5a1.5 1.5 0 1 1 3 0a1.5 1.5 0 0 1-3 0M11 10.5h2v6h-2z"/></svg>
+          </span>
+          <p>Providers like <strong>Deepgram</strong> and <strong>AssemblyAI</strong> offer generous free credits&mdash;<strong>$250 or up to 700+ hours</strong>&mdash;with No credit card required. Get started at zero cost and accelerate your productivity right away. <strong>NOW!</strong></p>
+        </div>
+        <div class="g-about__stat">
+          <span class="g-about__stat-value">20&ndash;40 MB</span>
+          <span class="g-about__stat-label">typical memory usage&mdash;a fraction of Electron-based alternatives</span>
+        </div>
+      </section>
+
+      <!-- Download -->
+      <section id="download" class="g-section">
+        <h2 class="g-section__title">Download</h2>
+        <p>Get the latest release from GitHub:</p>
+        <a href="https://github.com/KSattaluri/mango-chat/releases" class="btn btn--primary btn--sm" target="_blank" rel="noopener">
+          Latest Release
+          <svg class="win-logo win-logo--btn" width="14" height="14" viewBox="0 0 22 22" aria-label="Windows"><rect class="win-pane win-pane--1" x="1" y="1" width="9" height="9" rx="1.5" fill="#F25022"/><rect class="win-pane win-pane--2" x="12" y="1" width="9" height="9" rx="1.5" fill="#7FBA00"/><rect class="win-pane win-pane--3" x="1" y="12" width="9" height="9" rx="1.5" fill="#00A4EF"/><rect class="win-pane win-pane--4" x="12" y="12" width="9" height="9" rx="1.5" fill="#FFB900"/></svg>
+        </a>
+        <ul class="g-list">
+          <li>Windows 10 / 11</li>
+          <li>No admin privileges required</li>
+          <li>~8 MB installer</li>
+        </ul>
+      </section>
+
+      <!-- Installation & Getting Started -->
+      <section id="installation" class="g-section">
+        <h2 class="g-section__title">Installation &amp; Getting Started</h2>
+        <ol class="g-steps">
+          <li>Download <code>MangoChat-Setup.exe</code> from the latest GitHub release</li>
+          <li>Run the installer &mdash; no admin privileges needed</li>
+          <li>Accept defaults or change the install path</li>
+          <li>Click Install, then Finish</li>
+          <li>Search <code>MangoChat</code> in the Windows search bar to launch the app</li>
+        </ol>
+        <p class="g-note">Settings are stored in <code>%LOCALAPPDATA%\MangoChat\</code>. Uninstalling preserves your settings and keys.</p>
+      </section>
+
+      <!-- Configuration -->
+      <section id="configuration" class="g-section">
+        <h2 class="g-section__title">Configuration</h2>
+        <ol class="g-steps">
+          <li>Open Settings (gear icon)</li>
+          <li>Go to <strong>Providers</strong></li>
+          <li>Select a provider (Deepgram, AssemblyAI, OpenAI, or ElevenLabs)</li>
+          <li>Paste your API key</li>
+          <li>Click <strong>Verify</strong> to test the connection</li>
+          <li>Click <strong>Save</strong> &mdash; you're done</li>
+        </ol>
+        <p class="g-note">API keys are encrypted with Windows DPAPI. Never stored in plain text.</p>
+      </section>
+
+      <!-- Personalization -->
+      <section id="personalization" class="g-section">
+        <h2 class="g-section__title">Personalization</h2>
+        <ul class="g-list">
+          <li><strong>Appearance</strong> &mdash; change color theme, window opacity, anchor position</li>
+          <li><strong>Display</strong> &mdash; follow cursor across monitors or pin to one</li>
+          <li><strong>Commands</strong> &mdash; add browser commands (e.g. "open github" opens a URL)</li>
+          <li><strong>Programs</strong> &mdash; add programs to launch by voice (e.g. "launch claude")</li>
+          <li><strong>Aliases</strong> &mdash; create text shortcuts (e.g. "my email" expands to your address)</li>
+          <li><strong>VAD</strong> &mdash; switch between Strict and Lenient voice activity detection</li>
+        </ul>
+      </section>
+
+      <!-- Pricing -->
+      <section id="pricing" class="g-section">
+        <h2 class="g-section__title">Provider Pricing</h2>
+        <p>MangoChat is free forever. You only pay your speech provider.</p>
+        <table class="g-table">
+          <thead>
+            <tr>
+              <th>Provider</th>
+              <th>Per Hour</th>
+              <th>Free Credits</th>
+              <th>Card Required</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="g-table__highlight">
+              <td><strong>AssemblyAI</strong></td>
+              <td>$0.15</td>
+              <td>$50</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td>ElevenLabs</td>
+              <td>$0.28</td>
+              <td>Minimal</td>
+              <td>&mdash;</td>
+            </tr>
+            <tr class="g-table__highlight">
+              <td><strong>Deepgram</strong></td>
+              <td>$0.46</td>
+              <td>$200</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td>OpenAI Realtime</td>
+              <td>~$1.15</td>
+              <td>None</td>
+              <td>Yes</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="g-note">Deepgram + AssemblyAI = <strong>767+ free hours</strong> of dictation, no credit card.</p>
+      </section>
+
+      <!-- Known Issues -->
+      <section id="known-issues" class="g-section">
+        <h2 class="g-section__title">Known Issues</h2>
+        <ul class="g-list">
+          <li>Placeholder &mdash; known issues will be listed here</li>
+        </ul>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" class="g-section">
+        <h2 class="g-section__title">FAQ</h2>
+
+        <div class="g-faq">
+          <button class="g-faq__q" aria-expanded="false">
+            Which providers are supported?
+            <svg class="g-faq__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="g-faq__a">OpenAI Realtime, Deepgram, ElevenLabs, and AssemblyAI. All connect via WebSocket.</div>
+        </div>
+
+        <div class="g-faq">
+          <button class="g-faq__q" aria-expanded="false">
+            What voice commands are built in?
+            <svg class="g-faq__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="g-faq__a"><code>enter</code>, <code>new line</code>, <code>back</code>, <code>undo</code>, <code>redo</code>, <code>copy</code>, <code>paste</code>, <code>cut</code>, <code>select all</code>. Define custom aliases and URL commands in Settings.</div>
+        </div>
+
+        <div class="g-faq">
+          <button class="g-faq__q" aria-expanded="false">
+            What is VAD and which mode should I use?
+            <svg class="g-faq__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="g-faq__a">Voice Activity Detection filters silence before sending audio. <strong>Strict</strong> for noisy environments, <strong>Lenient</strong> for quiet speech. VAD reduces billed time.</div>
+        </div>
+
+        <div class="g-faq">
+          <button class="g-faq__q" aria-expanded="false">
+            Where are my API keys stored?
+            <svg class="g-faq__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="g-faq__a">Encrypted with Windows DPAPI in <code>%LOCALAPPDATA%\MangoChat\secrets.json</code>. Tied to your user account.</div>
+        </div>
+
+        <div class="g-faq">
+          <button class="g-faq__q" aria-expanded="false">
+            Can I switch microphones without restarting?
+            <svg class="g-faq__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="g-faq__a">Yes. Settings &gt; Audio &gt; Refresh to re-scan devices. No restart needed.</div>
+        </div>
+
+        <div class="g-faq">
+          <button class="g-faq__q" aria-expanded="false">
+            Does MangoChat collect telemetry?
+            <svg class="g-faq__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="g-faq__a">No. Zero telemetry, zero analytics. Audio goes directly to your chosen provider. Nothing else leaves your machine.</div>
+        </div>
+
+        <div class="g-faq">
+          <button class="g-faq__q" aria-expanded="false">
+            How do Bluetooth headphones work?
+            <svg class="g-faq__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="g-faq__a">MangoChat monitors your capture device mute state. Mute your headset to pause, unmute to resume.</div>
+        </div>
+
+        <div class="g-faq">
+          <button class="g-faq__q" aria-expanded="false">
+            Is MangoChat open source?
+            <svg class="g-faq__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="g-faq__a">Yes. MIT license. <a href="https://github.com/KSattaluri/mango-chat" target="_blank" rel="noopener">View source on GitHub</a>.</div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="guide.js"></script>
+</body>
+</html>

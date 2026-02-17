@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MangoChat — Free Open-Source Voice Dictation for Windows</title>
+  <meta name="description" content="MangoChat is a free, open-source, lightweight voice dictation app for Windows. Speak into any application with AI-powered speech-to-text.">
+  <meta name="theme-color" content="#FAFAF8">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>&#x1F96D;</text></svg>">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="top-bar">
+    <a href="#" class="top-bar__logo">
+      <span class="top-bar__logo-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FAFAF8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+      </span>
+      MangoChat
+    </a>
+    <nav class="top-bar__nav">
+      <a href="guide.html#faq">FAQ</a>
+      <a href="https://github.com/KSattaluri/mango-chat" target="_blank" rel="noopener">About</a>
+      <a href="https://github.com/KSattaluri/mango-chat" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </header>
+
+  <main class="hero">
+    <span class="badge reveal">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      Open Source &middot; MIT License
+    </span>
+
+    <h1 class="hero__headline reveal">
+      <span class="hero__brand">MangoChat</span>
+      <span class="hero__desc">Free, lightweight, open-source<br>voice dictation for Windows <svg class="win-logo" width="18" height="18" viewBox="0 0 22 22" aria-label="Windows"><rect class="win-pane win-pane--1" x="1" y="1" width="9" height="9" rx="1.5" fill="#F25022"/><rect class="win-pane win-pane--2" x="12" y="1" width="9" height="9" rx="1.5" fill="#7FBA00"/><rect class="win-pane win-pane--3" x="1" y="12" width="9" height="9" rx="1.5" fill="#00A4EF"/><rect class="win-pane win-pane--4" x="12" y="12" width="9" height="9" rx="1.5" fill="#FFB900"/></svg></span>
+    </h1>
+
+    <p class="hero__tagline reveal">
+      Do more with less today. <span>Effortlessly.</span>
+    </p>
+
+    <div class="visualizer reveal">
+      <div class="visualizer__card">
+        <div class="visualizer__controls">
+          <div class="visualizer__btn visualizer__btn--record">
+            <span class="visualizer__btn-inner"></span>
+          </div>
+          <div class="visualizer__waveform">
+            <canvas id="waveformCanvas"></canvas>
+          </div>
+          <div class="visualizer__btn visualizer__btn--settings">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.012 2.25c.734.008 1.465.093 2.182.253a.75.75 0 0 1 .582.649l.17 1.527a1.384 1.384 0 0 0 1.927 1.116l1.4-.615a.75.75 0 0 1 .85.174a9.8 9.8 0 0 1 2.205 3.792a.75.75 0 0 1-.272.825l-1.241.916a1.38 1.38 0 0 0 0 2.226l1.243.915a.75.75 0 0 1 .272.826a9.8 9.8 0 0 1-2.204 3.792a.75.75 0 0 1-.849.175l-1.406-.617a1.38 1.38 0 0 0-1.926 1.114l-.17 1.526a.75.75 0 0 1-.571.647a9.5 9.5 0 0 1-4.406 0a.75.75 0 0 1-.572-.647l-.169-1.524a1.382 1.382 0 0 0-1.925-1.11l-1.406.616a.75.75 0 0 1-.85-.175a9.8 9.8 0 0 1-2.203-3.796a.75.75 0 0 1 .272-.826l1.243-.916a1.38 1.38 0 0 0 0-2.226l-1.243-.914a.75.75 0 0 1-.272-.826a9.8 9.8 0 0 1 2.205-3.792a.75.75 0 0 1 .85-.174l1.4.615a1.387 1.387 0 0 0 1.93-1.118l.17-1.526a.75.75 0 0 1 .583-.65q1.074-.238 2.201-.252m0 1.5a9 9 0 0 0-1.354.117l-.11.977A2.886 2.886 0 0 1 6.526 7.17l-.899-.394A8.3 8.3 0 0 0 4.28 9.092l.797.587a2.88 2.88 0 0 1 .001 4.643l-.799.588c.32.842.776 1.626 1.348 2.322l.905-.397a2.882 2.882 0 0 1 4.017 2.318l.109.984c.89.15 1.799.15 2.688 0l.11-.984a2.88 2.88 0 0 1 4.018-2.322l.904.396a8.3 8.3 0 0 0 1.348-2.318l-.798-.588a2.88 2.88 0 0 1-.001-4.643l.797-.587a8.3 8.3 0 0 0-1.348-2.317l-.897.393a2.884 2.884 0 0 1-4.023-2.324l-.109-.976a9 9 0 0 0-1.334-.117M12 8.25a3.75 3.75 0 1 1 0 7.5a3.75 3.75 0 0 1 0-7.5m0 1.5a2.25 2.25 0 1 0 0 4.5a2.25 2.25 0 0 0 0-4.5"/></svg>
+          </div>
+        </div>
+        <div class="visualizer__transcript-row">
+          <span class="visualizer__category" id="appCategory"></span>
+          <div class="visualizer__transcript" id="appTranscript"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__actions reveal">
+      <a href="guide.html" class="btn btn--primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c5.523 0 10 4.478 10 10s-4.477 10-10 10S2 17.522 2 12S6.477 2 12 2m0 1.667c-4.595 0-8.333 3.738-8.333 8.333S7.405 20.333 12 20.333s8.333-3.738 8.333-8.333S16.595 3.667 12 3.667M12 15.5a1 1 0 1 1 0 2a1 1 0 0 1 0-2m0-8.75a2.75 2.75 0 0 1 2.75 2.75c0 1.01-.297 1.574-1.051 2.359l-.169.171c-.622.622-.78.886-.78 1.47a.75.75 0 0 1-1.5 0c0-1.01.297-1.574 1.051-2.359l.169-.171c.622-.622.78-.886.78-1.47a1.25 1.25 0 0 0-2.493-.128l-.007.128a.75.75 0 0 1-1.5 0A2.75 2.75 0 0 1 12 6.75"/></svg>
+        How To
+      </a>
+      <a href="https://github.com/KSattaluri/mango-chat/releases" class="btn btn--secondary" target="_blank" rel="noopener">
+        Download
+        <svg class="win-logo win-logo--btn" width="16" height="16" viewBox="0 0 22 22" aria-label="Windows"><rect class="win-pane win-pane--1" x="1" y="1" width="9" height="9" rx="1.5" fill="#F25022"/><rect class="win-pane win-pane--2" x="12" y="1" width="9" height="9" rx="1.5" fill="#7FBA00"/><rect class="win-pane win-pane--3" x="1" y="12" width="9" height="9" rx="1.5" fill="#00A4EF"/><rect class="win-pane win-pane--4" x="12" y="12" width="9" height="9" rx="1.5" fill="#FFB900"/></svg>
+      </a>
+      <a href="https://github.com/KSattaluri/mango-chat" class="btn btn--secondary" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        View Source
+      </a>
+    </div>
+
+    <div class="carousel reveal" id="stepCarousel">
+      <div class="carousel__track">
+        <div class="carousel__step active">
+          <span class="carousel__num">1</span>
+          <span class="carousel__text">Speak</span>
+        </div>
+        <div class="carousel__step">
+          <span class="carousel__num">2</span>
+          <span class="carousel__text">Text appears</span>
+        </div>
+        <div class="carousel__step">
+          <span class="carousel__num">3</span>
+          <span class="carousel__text">Issue command</span>
+        </div>
+        <div class="carousel__step">
+          <span class="carousel__num">4</span>
+          <span class="carousel__text">Control applications</span>
+        </div>
+      </div>
+      <div class="carousel__dots">
+        <span class="carousel__dot active"></span>
+        <span class="carousel__dot"></span>
+        <span class="carousel__dot"></span>
+        <span class="carousel__dot"></span>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 MangoChat &middot; MIT License</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
