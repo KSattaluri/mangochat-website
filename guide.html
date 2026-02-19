@@ -67,6 +67,7 @@
     <nav class="top-bar__nav">
       <a href="index.html">Home</a>
       <a href="https://github.com/KSattaluri/mango-chat" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://x.com/mangochat123" target="_blank" rel="noopener">Twitter</a>
     </nav>
   </header>
 
@@ -81,8 +82,6 @@
         <a href="#features" class="guide__link" data-section="features">Features</a>
         <a href="#tips" class="guide__link" data-section="tips">Tips</a>
         <a href="#screenshots" class="guide__link" data-section="screenshots">Screenshots</a>
-        <a href="#pricing" class="guide__link" data-section="pricing">Provider Pricing</a>
-        <a href="#known-issues" class="guide__link" data-section="known-issues">Known Issues</a>
         <a href="#faq" class="guide__link" data-section="faq">FAQ</a>
       </nav>
     </aside>
@@ -162,14 +161,14 @@
       <section id="features" class="g-section">
         <h2 class="g-section__title">Features</h2>
         <ul class="g-list">
-          <li><strong>Screenshot capture</strong> &mdash; fast screenshot workflow with a single hotkey (Right Alt). Captures your current monitor instantly.</li>
+          <li><strong>Screenshot capture</strong> &mdash; Right Alt to snip, three clipboard modes: <strong>copy path</strong> for terminals (paste into Claude Code, Codex), <strong>copy image</strong> for browsers and chat, or <strong>copy &amp; edit</strong> to annotate first. No save dialogs, no file dragging.</li>
           <li><strong>Session safeguards</strong> &mdash; configurable max session length and inactivity timeout to prevent runaway provider costs</li>
           <li><strong>Voice commands</strong> &mdash; built-in commands like <code>enter</code>, <code>back</code>, <code>undo</code>, <code>copy</code>, <code>paste</code>, and more</li>
           <li><strong>Browser commands</strong> &mdash; open URLs by voice (e.g. "open github" launches a site in your chosen browser)</li>
           <li><strong>Program launcher</strong> &mdash; say a single word to open any app. Just say <code>cursor</code> or <code>chrome</code> on its own&mdash;no prefix needed. Map any word to an .exe path in Settings.</li>
           <li><strong>Text aliases</strong> &mdash; create text shortcuts that expand on dictation (e.g. "my email" types your address)</li>
           <li><strong>Appearance</strong> &mdash; change color theme, window opacity, and anchor position</li>
-          <li><strong>VAD</strong> &mdash; Strict or Lenient voice activity detection to filter background noise and reduce billed time</li>
+          <li><strong>Noise suppression</strong> &mdash; High (recommended) or Low. Filters background noise before sending audio to your provider.</li>
         </ul>
       </section>
 
@@ -263,67 +262,56 @@
         </div>
       </section>
 
-      <!-- Pricing -->
-      <section id="pricing" class="g-section">
-        <h2 class="g-section__title">Provider Pricing</h2>
-        <p>Mango Chat is free forever. You only pay your speech provider.</p>
-        <table class="g-table">
-          <thead>
-            <tr>
-              <th>Provider</th>
-              <th>Per Hour</th>
-              <th>Free Credits</th>
-              <th>Card Required</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="g-table__highlight">
-              <td><strong>AssemblyAI</strong></td>
-              <td>$0.15</td>
-              <td>$50</td>
-              <td>No</td>
-            </tr>
-            <tr>
-              <td>ElevenLabs</td>
-              <td>$0.28</td>
-              <td>Minimal</td>
-              <td>&mdash;</td>
-            </tr>
-            <tr class="g-table__highlight">
-              <td><strong>Deepgram</strong></td>
-              <td>$0.46</td>
-              <td>$200</td>
-              <td>No</td>
-            </tr>
-            <tr>
-              <td>OpenAI Realtime</td>
-              <td>~$1.15</td>
-              <td>None</td>
-              <td>Yes</td>
-            </tr>
-          </tbody>
-        </table>
-        <p class="g-note">Deepgram + AssemblyAI = <strong>767+ free hours</strong> of dictation, no credit card.</p>
-      </section>
-
-      <!-- Known Issues -->
-      <section id="known-issues" class="g-section">
-        <h2 class="g-section__title">Known Issues</h2>
-        <ul class="g-list">
-          <li>Placeholder &mdash; known issues will be listed here</li>
-        </ul>
-      </section>
-
       <!-- FAQ -->
       <section id="faq" class="g-section">
         <h2 class="g-section__title">FAQ</h2>
 
         <div class="g-faq">
           <button class="g-faq__q" aria-expanded="false">
+            What happens when you start Mango Chat?
+            <svg class="g-faq__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="g-faq__a">When you start recording, Mango Chat listens for audio from your device and streams it to your selected provider for transcription. Place your cursor in a text field to begin dictating.</div>
+        </div>
+
+        <div class="g-faq">
+          <button class="g-faq__q" aria-expanded="false">
+            What are the hotkeys?
+            <svg class="g-faq__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="g-faq__a"><code>Right Ctrl</code> to start and stop recording. <code>Right Alt</code> to capture a screenshot. Both can be enabled or disabled in Settings.</div>
+        </div>
+
+        <div class="g-faq">
+          <button class="g-faq__q" aria-expanded="false">
             Which providers are supported?
             <svg class="g-faq__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
-          <div class="g-faq__a">OpenAI Realtime, Deepgram, ElevenLabs, and AssemblyAI. All connect via WebSocket.</div>
+          <div class="g-faq__a">Deepgram, OpenAI Realtime, ElevenLabs Realtime, and AssemblyAI. All connect via WebSocket.</div>
+        </div>
+
+        <div class="g-faq">
+          <button class="g-faq__q" aria-expanded="false">
+            How much does transcription cost?
+            <svg class="g-faq__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="g-faq__a">Mango Chat is free. You only pay your speech provider&mdash;on average around <strong>$0.50/hour</strong> or less. <strong>Deepgram</strong> and <strong>AssemblyAI</strong> both offer generous free credits (no credit card required) that can last hundreds of hours. Start with those.</div>
+        </div>
+
+        <div class="g-faq">
+          <button class="g-faq__q" aria-expanded="false">
+            Where are my API keys stored?
+            <svg class="g-faq__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="g-faq__a">Encrypted at rest and stored locally in <code>AppData/Local/MangoChat</code>. Only transmitted over secure connections when authenticating with your chosen provider.</div>
+        </div>
+
+        <div class="g-faq">
+          <button class="g-faq__q" aria-expanded="false">
+            Does Mango Chat collect telemetry or personal information?
+            <svg class="g-faq__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="g-faq__a">No. Mango Chat has no built-in telemetry. During recording, audio is sent only to your selected provider for transcription.</div>
         </div>
 
         <div class="g-faq">
@@ -336,18 +324,42 @@
 
         <div class="g-faq">
           <button class="g-faq__q" aria-expanded="false">
-            What is VAD and which mode should I use?
+            Can I customize commands and aliases?
             <svg class="g-faq__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
-          <div class="g-faq__a">Voice Activity Detection filters silence before sending audio. <strong>Strict</strong> for noisy environments, <strong>Lenient</strong> for quiet speech. VAD reduces billed time.</div>
+          <div class="g-faq__a">Yes. You can edit browser commands, text aliases, and app locations from the Commands tab in Settings.</div>
         </div>
 
         <div class="g-faq">
           <button class="g-faq__q" aria-expanded="false">
-            Where are my API keys stored?
+            How do I take a screenshot?
             <svg class="g-faq__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
-          <div class="g-faq__a">Encrypted with Windows DPAPI in <code>%LOCALAPPDATA%\MangoChat\secrets.json</code>. Tied to your user account.</div>
+          <div class="g-faq__a">Enable screenshot capture in Settings, move your cursor to the monitor you want, press <code>Right Alt</code>, then drag to select the region.</div>
+        </div>
+
+        <div class="g-faq">
+          <button class="g-faq__q" aria-expanded="false">
+            What happens after I capture a screenshot?
+            <svg class="g-faq__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="g-faq__a">Based on your selected mode, Mango Chat can copy the image path to your clipboard, copy the image content, or open it in an editor for annotation.</div>
+        </div>
+
+        <div class="g-faq">
+          <button class="g-faq__q" aria-expanded="false">
+            Where are screenshots saved?
+            <svg class="g-faq__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="g-faq__a">Use <strong>Open images folder</strong> in Settings to open the active screenshot directory.</div>
+        </div>
+
+        <div class="g-faq">
+          <button class="g-faq__q" aria-expanded="false">
+            Why do I sometimes experience delays or inaccurate transcription?
+            <svg class="g-faq__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="g-faq__a">These are provider-dependent and may be caused by audio quality, speech clarity, network latency, or inherent limitations of the model.</div>
         </div>
 
         <div class="g-faq">
@@ -355,15 +367,7 @@
             Can I switch microphones without restarting?
             <svg class="g-faq__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
-          <div class="g-faq__a">Yes. Settings &gt; Audio &gt; Refresh to re-scan devices. No restart needed.</div>
-        </div>
-
-        <div class="g-faq">
-          <button class="g-faq__q" aria-expanded="false">
-            Does Mango Chat collect telemetry?
-            <svg class="g-faq__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="g-faq__a">No. Zero telemetry, zero analytics. Audio goes directly to your chosen provider. Nothing else leaves your machine.</div>
+          <div class="g-faq__a">Yes. Settings &gt; Session &gt; Refresh to re-scan devices. No restart needed.</div>
         </div>
 
         <div class="g-faq">
@@ -387,7 +391,7 @@
   </div>
 
   <footer class="footer">
-    <p>Made by <a href="https://github.com/KSattaluri" target="_blank" rel="noopener">Kalyan Sattaluri</a> &middot; &copy; 2026 Mango Chat &middot; MIT License</p>
+    <p><a href="https://github.com/KSattaluri" target="_blank" rel="noopener" class="footer__author">Kalyan Sattaluri</a> &middot; &copy; 2026 Mango Chat &middot; MIT License &middot; <a href="https://x.com/mangochat123" target="_blank" rel="noopener">Twitter</a></p>
   </footer>
 
   <!-- Lightbox -->

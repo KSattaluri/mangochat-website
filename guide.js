@@ -5,18 +5,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.querySelectorAll('.guide__link[data-section]');
 
   function updateActiveNav() {
-    const scrollY = window.scrollY + 100;
     let currentId = '';
+    const threshold = 140;
 
     sections.forEach(section => {
-      if (section.offsetTop + section.offsetParent.offsetTop <= scrollY) {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= threshold) {
         currentId = section.getAttribute('id');
       }
     });
 
     navLinks.forEach(link => {
-      link.classList.toggle('active', link.getAttribute('data-section') === currentId);
+      const isActive = link.getAttribute('data-section') === currentId;
+      link.classList.toggle('active', isActive);
     });
+
+    // Auto-scroll the active nav link into view on mobile
+    const activeLink = document.querySelector('.guide__link.active');
+    if (activeLink && window.innerWidth <= 768) {
+      activeLink.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
+    }
   }
 
   window.addEventListener('scroll', updateActiveNav, { passive: true });

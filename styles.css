@@ -514,13 +514,18 @@ a:hover { color: var(--accent-hover); }
   border-top: 1px solid var(--border);
 }
 .footer a {
-  color: var(--text-secondary);
+  color: var(--text-muted);
   text-decoration: none;
-  font-weight: 500;
   transition: color 0.15s;
 }
 .footer a:hover {
-  color: var(--accent);
+  color: var(--text-secondary);
+}
+.footer__author {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  opacity: 0.65;
 }
 
 /* ===== SCROLL REVEAL ===== */
@@ -541,7 +546,9 @@ a:hover { color: var(--accent-hover); }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 600px) {
-  .top-bar { padding: 0 1.25rem; }
+  .top-bar { padding: 0 1rem; }
+  .top-bar__nav { gap: 1rem; }
+  .top-bar__nav a { font-size: 0.82rem; }
 
   .hero {
     padding: 80px 1.25rem 1.5rem;
@@ -558,9 +565,20 @@ a:hover { color: var(--accent-hover); }
   }
 
   .visualizer { max-width: 100%; }
-  .visualizer__card { padding: 1.25rem; }
+  .visualizer__card {
+    padding: 1rem;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+  .visualizer__controls { gap: 0.6rem; }
+  .visualizer__btn { width: 36px; height: 36px; flex-shrink: 0; }
+  .visualizer__btn-inner { width: 10px; height: 10px; }
 
-  .hero__actions { margin-bottom: 1.25rem; }
+  .hero__actions {
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
   .btn {
     padding: 0.65rem 1.25rem;
