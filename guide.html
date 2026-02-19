@@ -3,24 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mango Chat — Guide</title>
-  <meta name="description" content="Installation, configuration, and usage guide for Mango Chat voice dictation.">
+  <title>Mango Chat — Free Voice Dictation Setup Guide for Windows</title>
+  <meta name="description" content="Setup and usage guide for Mango Chat — free voice dictation and speech-to-text app for Windows. Configure providers, personalize settings, and start dictating.">
   <meta name="theme-color" content="#FAFAF8">
+  <meta name="author" content="Kalyan Sattaluri">
+  <meta name="keywords" content="Mango Chat guide, voice dictation setup, Windows speech to text setup, Deepgram setup, AssemblyAI setup, free dictation app guide, voice transcription Windows">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <link rel="canonical" href="https://mangochat.org/guide.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Mango Chat">
   <meta property="og:title" content="Mango Chat - Setup and Usage Guide">
-  <meta property="og:description" content="Installation, configuration, and usage guide for Mango Chat voice dictation on Windows.">
+  <meta property="og:description" content="Setup guide for Mango Chat — free voice dictation and speech-to-text app for Windows. Configure providers, personalize settings, and start dictating.">
   <meta property="og:url" content="https://mangochat.org/guide.html">
+  <meta property="og:image" content="https://mangochat.org/assets/desktop.jpg">
   <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@mangochat123">
+  <meta name="twitter:creator" content="@mangochat123">
+  <meta name="twitter:title" content="Mango Chat — Setup and Usage Guide">
+  <meta name="twitter:description" content="Setup guide for Mango Chat, a free voice dictation app for Windows. Configure speech-to-text providers and start dictating.">
+  <meta name="twitter:image" content="https://mangochat.org/assets/desktop.jpg">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
       "name": "Mango Chat Guide",
       "url": "https://mangochat.org/guide.html",
-      "description": "Installation, configuration, and usage guide for Mango Chat voice dictation on Windows."
+      "description": "Setup and usage guide for Mango Chat — free voice dictation and speech-to-text app for Windows.",
+      "author": {
+        "@type": "Person",
+        "name": "Kalyan Sattaluri",
+        "url": "https://github.com/KSattaluri"
+      }
     }
   </script>
   <script>
@@ -64,7 +78,8 @@
         <a href="#download" class="guide__link" data-section="download">Download</a>
         <a href="#installation" class="guide__link" data-section="installation">Installation</a>
         <a href="#configuration" class="guide__link" data-section="configuration">Configuration</a>
-        <a href="#personalization" class="guide__link" data-section="personalization">Personalization</a>
+        <a href="#features" class="guide__link" data-section="features">Features</a>
+        <a href="#tips" class="guide__link" data-section="tips">Tips</a>
         <a href="#screenshots" class="guide__link" data-section="screenshots">Screenshots</a>
         <a href="#pricing" class="guide__link" data-section="pricing">Provider Pricing</a>
         <a href="#known-issues" class="guide__link" data-section="known-issues">Known Issues</a>
@@ -74,6 +89,7 @@
 
     <!-- Content -->
     <main class="guide__content">
+      <h1 class="g-page-title">Mango Chat — Setup &amp; Usage Guide</h1>
 
       <!-- About -->
       <section id="about" class="g-section">
@@ -89,17 +105,14 @@
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.012 2.25c.734.008 1.465.093 2.182.253a.75.75 0 0 1 .582.649l.17 1.527a1.384 1.384 0 0 0 1.927 1.116l1.4-.615a.75.75 0 0 1 .85.174a9.8 9.8 0 0 1 2.205 3.792a.75.75 0 0 1-.272.825l-1.241.916a1.38 1.38 0 0 0 0 2.226l1.243.915a.75.75 0 0 1 .272.826a9.8 9.8 0 0 1-2.204 3.792a.75.75 0 0 1-.849.175l-1.406-.617a1.38 1.38 0 0 0-1.926 1.114l-.17 1.526a.75.75 0 0 1-.571.647a9.5 9.5 0 0 1-4.406 0a.75.75 0 0 1-.572-.647l-.169-1.524a1.382 1.382 0 0 0-1.925-1.11l-1.406.616a.75.75 0 0 1-.85-.175a9.8 9.8 0 0 1-2.203-3.796a.75.75 0 0 1 .272-.826l1.243-.916a1.38 1.38 0 0 0 0-2.226l-1.243-.914a.75.75 0 0 1-.272-.826a9.8 9.8 0 0 1 2.205-3.792a.75.75 0 0 1 .85-.174l1.4.615a1.387 1.387 0 0 0 1.93-1.118l.17-1.526a.75.75 0 0 1 .583-.65q1.074-.238 2.201-.252m0 1.5a9 9 0 0 0-1.354.117l-.11.977A2.886 2.886 0 0 1 6.526 7.17l-.899-.394A8.3 8.3 0 0 0 4.28 9.092l.797.587a2.88 2.88 0 0 1 .001 4.643l-.799.588c.32.842.776 1.626 1.348 2.322l.905-.397a2.882 2.882 0 0 1 4.017 2.318l.109.984c.89.15 1.799.15 2.688 0l.11-.984a2.88 2.88 0 0 1 4.018-2.322l.904.396a8.3 8.3 0 0 0 1.348-2.318l-.798-.588a2.88 2.88 0 0 1-.001-4.643l.797-.587a8.3 8.3 0 0 0-1.348-2.317l-.897.393a2.884 2.884 0 0 1-4.023-2.324l-.109-.976a9 9 0 0 0-1.334-.117M12 8.25a3.75 3.75 0 1 1 0 7.5a3.75 3.75 0 0 1 0-7.5m0 1.5a2.25 2.25 0 1 0 0 4.5a2.25 2.25 0 0 0 0-4.5"/></svg>
           </div>
         </div>
-        <p class="g-about__tagline">Totally free, open-source, lightweight, AI-powered voice productivity app for Windows.</p>
-        <p>Written in <strong>Rust</strong> with extremely low memory usage, Mango Chat skips local models like Whisper, Chromium-based transcription, and Windows native speech recognition. Instead, it streams your audio directly to your chosen cloud speech-to-text providers for <strong>ultra-low-latency</strong> results.</p>
+        <p class="g-about__tagline">Free, open-source voice dictation for Windows.</p>
+        <p>Built in <strong>Rust</strong>. Under <strong>50 MB</strong> of memory. Speak into any application&mdash;Mango Chat streams your audio to your chosen provider and transcribes in real time.</p>
+        <p>Supports <strong>Deepgram</strong>, <strong>AssemblyAI</strong>, <strong>OpenAI Realtime</strong>, and <strong>ElevenLabs</strong>&mdash;all via WebSocket for ultra-low-latency results.</p>
         <div class="g-about__callout">
           <span class="g-about__callout-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10s10-4.477 10-10S17.523 2 12 2m-1.5 5a1.5 1.5 0 1 1 3 0a1.5 1.5 0 0 1-3 0M11 10.5h2v6h-2z"/></svg>
           </span>
-          <p>Providers like <strong>Deepgram</strong> and <strong>AssemblyAI</strong> offer generous free credits&mdash;<strong>$250 or up to 700+ hours</strong>&mdash;with No credit card required. Get started at zero cost and accelerate your productivity right away. <strong>NOW!</strong></p>
-        </div>
-        <div class="g-about__stat">
-          <span class="g-about__stat-value">20&ndash;40 MB</span>
-          <span class="g-about__stat-label">typical memory usage&mdash;a fraction of Electron-based alternatives</span>
+          <p><strong>Deepgram</strong> and <strong>AssemblyAI</strong> offer a combined <strong>$250+ in free credits</strong>&mdash;that's <strong>700+ hours</strong> of dictation, no credit card required.</p>
         </div>
       </section>
 
@@ -145,16 +158,37 @@
         <p class="g-note">API keys are encrypted with Windows DPAPI. Never stored in plain text.</p>
       </section>
 
-      <!-- Personalization -->
-      <section id="personalization" class="g-section">
-        <h2 class="g-section__title">Personalization</h2>
+      <!-- Features -->
+      <section id="features" class="g-section">
+        <h2 class="g-section__title">Features</h2>
         <ul class="g-list">
-          <li><strong>Appearance</strong> &mdash; change color theme, window opacity, anchor position</li>
-          <li><strong>Display</strong> &mdash; follow cursor across monitors or pin to one</li>
-          <li><strong>Commands</strong> &mdash; add browser commands (e.g. "open github" opens a URL)</li>
-          <li><strong>Programs</strong> &mdash; add programs to launch by voice (e.g. "launch claude")</li>
-          <li><strong>Aliases</strong> &mdash; create text shortcuts (e.g. "my email" expands to your address)</li>
-          <li><strong>VAD</strong> &mdash; switch between Strict and Lenient voice activity detection</li>
+          <li><strong>Screenshot capture</strong> &mdash; fast screenshot workflow with a single hotkey (Right Alt). Captures your current monitor instantly.</li>
+          <li><strong>Session safeguards</strong> &mdash; configurable max session length and inactivity timeout to prevent runaway provider costs</li>
+          <li><strong>Voice commands</strong> &mdash; built-in commands like <code>enter</code>, <code>back</code>, <code>undo</code>, <code>copy</code>, <code>paste</code>, and more</li>
+          <li><strong>Browser commands</strong> &mdash; open URLs by voice (e.g. "open github" launches a site in your chosen browser)</li>
+          <li><strong>Program launcher</strong> &mdash; say a single word to open any app. Just say <code>cursor</code> or <code>chrome</code> on its own&mdash;no prefix needed. Map any word to an .exe path in Settings.</li>
+          <li><strong>Text aliases</strong> &mdash; create text shortcuts that expand on dictation (e.g. "my email" types your address)</li>
+          <li><strong>Appearance</strong> &mdash; change color theme, window opacity, and anchor position</li>
+          <li><strong>VAD</strong> &mdash; Strict or Lenient voice activity detection to filter background noise and reduce billed time</li>
+        </ul>
+      </section>
+
+      <!-- Tips -->
+      <section id="tips" class="g-section">
+        <h2 class="g-section__title">Tips</h2>
+        <div class="g-about__callout">
+          <span class="g-about__callout-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10s10-4.477 10-10S17.523 2 12 2m-1.5 5a1.5 1.5 0 1 1 3 0a1.5 1.5 0 0 1-3 0M11 10.5h2v6h-2z"/></svg>
+          </span>
+          <p>Mango Chat is designed to bridge the gap between your voice and your tools&mdash;whether it's a coding agent, a research assistant, or any AI-powered application.</p>
+        </div>
+        <ul class="g-list">
+          <li><strong>Speak naturally</strong> &mdash; don't worry about perfect transcription. AI tools like Claude and ChatGPT are smart enough to understand your intent from context, even with minor errors.</li>
+          <li><strong>Don't redo, just correct</strong> &mdash; if you misspeak or see an error, don't start over. Simply say your correction and keep going. The AI will understand.</li>
+          <li><strong>Keep sentences short</strong> &mdash; speak in short, focused sentences. This produces cleaner transcripts and faster responses.</li>
+          <li><strong>Say <code>enter</code> when ready</strong> &mdash; this sends your input to the active application. Think of it as pressing the submit button with your voice.</li>
+          <li><strong>Commands must be standalone</strong> &mdash; voice commands like <code>cursor</code>, <code>chrome</code>, <code>undo</code>, or <code>open github</code> only trigger when spoken by themselves, not as part of a sentence.</li>
+          <li><strong>Combine with screenshots</strong> &mdash; dictate to your AI, take a quick screenshot with Right Alt, and let the AI see what you see. Voice + visuals is a powerful workflow.</li>
         </ul>
       </section>
 
@@ -351,6 +385,10 @@
 
     </main>
   </div>
+
+  <footer class="footer">
+    <p>Made by <a href="https://github.com/KSattaluri" target="_blank" rel="noopener">Kalyan Sattaluri</a> &middot; &copy; 2026 Mango Chat &middot; MIT License</p>
+  </footer>
 
   <!-- Lightbox -->
   <div class="g-lightbox" id="lightbox">

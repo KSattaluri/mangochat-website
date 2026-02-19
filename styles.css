@@ -513,6 +513,15 @@ a:hover { color: var(--accent-hover); }
   font-size: 0.78rem;
   border-top: 1px solid var(--border);
 }
+.footer a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+.footer a:hover {
+  color: var(--accent);
+}
 
 /* ===== SCROLL REVEAL ===== */
 .reveal {

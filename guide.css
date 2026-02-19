@@ -78,6 +78,18 @@ html {
   flex: 1;
 }
 
+/* ===== PAGE TITLE (H1) ===== */
+.g-page-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
 /* ===== SECTIONS ===== */
 .g-section {
   padding-bottom: 1.5rem;
