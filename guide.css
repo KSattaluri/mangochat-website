@@ -618,6 +618,11 @@ html {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
+  html {
+    scroll-padding-top: 112px;
+  }
+
+  /* Sidebar → horizontal top nav */
   .guide__sidebar {
     position: fixed;
     top: 60px;
@@ -628,7 +633,7 @@ html {
     height: auto;
     border-right: none;
     border-bottom: 1px solid var(--border);
-    padding: 0.75rem 1rem;
+    padding: 0 0.75rem;
     z-index: 50;
     background: var(--bg-surface);
   }
@@ -637,33 +642,74 @@ html {
     gap: 0;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .guide__nav::-webkit-scrollbar {
+    display: none;
   }
   .guide__link {
     white-space: nowrap;
-    padding: 0.35rem 0.6rem;
+    padding: 0.6rem 0.7rem;
     font-size: 0.78rem;
   }
   .guide__link::before { display: none; }
 
+  /* Content area */
   .guide__content {
     margin-left: 0;
-    margin-top: 48px;
-    padding: 1.25rem 1.25rem 2rem;
+    margin-top: 44px;
+    padding: 1rem 1rem 2.5rem;
+    max-width: 100%;
   }
 
+  /* Section spacing */
+  .g-section {
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  /* About section */
+  .g-about__tagline {
+    font-size: 1.05rem !important;
+  }
+  .g-about__stat {
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  /* Table — horizontal scroll */
+  .g-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+
+  /* Code overflow */
+  .g-section code {
+    word-break: break-all;
+  }
+
+  /* FAQ — larger touch targets */
+  .g-faq__q {
+    padding: 0.75rem 0;
+    font-size: 0.88rem;
+  }
+
+  /* Keys */
   .g-keys { flex-direction: column; gap: 0.5rem; }
 
+  /* Carousel — arrows inside, overlay style */
   .g-carousel__duo {
     flex-direction: column;
     gap: 1.25rem;
     padding: 1.5rem 1rem 1rem;
   }
-
   .g-carousel__arrow--prev { left: 6px; }
   .g-carousel__arrow--next { right: 6px; }
   .g-carousel__arrow {
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     background: rgba(0, 0, 0, 0.45);
     border-color: transparent;
     color: #fff;
@@ -672,5 +718,33 @@ html {
     background: rgba(0, 0, 0, 0.6);
     color: #fff;
     border-color: transparent;
+  }
+
+  /* Lightbox — tighter on mobile */
+  .g-lightbox__img {
+    max-width: 96vw;
+    max-height: 85vh;
+    border-radius: 6px;
+  }
+  .g-lightbox__close {
+    top: 0.5rem;
+    right: 0.75rem;
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .guide__link {
+    padding: 0.55rem 0.5rem;
+    font-size: 0.72rem;
+  }
+  .guide__content {
+    padding: 0.75rem 0.75rem 2rem;
+  }
+  .g-section__title {
+    font-size: 0.95rem;
+  }
+  .g-section p {
+    font-size: 0.82rem;
   }
 }
