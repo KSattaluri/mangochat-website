@@ -140,6 +140,105 @@ document.addEventListener('DOMContentLoaded', () => {
     drawWaveform();
   }
 
+  // ── Screenshot Carousel ──
+  const carousel = document.querySelector('.g-carousel');
+  if (carousel) {
+    const track = carousel.querySelector('.g-carousel__track');
+    const slides = track.querySelectorAll('.g-carousel__slide');
+    const prevBtn = carousel.querySelector('.g-carousel__arrow--prev');
+    const nextBtn = carousel.querySelector('.g-carousel__arrow--next');
+    const dotsContainer = carousel.querySelector('.g-carousel__dots');
+    let current = 0;
+    const total = slides.length;
+
+    // Build dots
+    for (let i = 0; i < total; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'g-carousel__dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Go to screenshot ' + (i + 1));
+      dot.addEventListener('click', () => goTo(i));
+      dotsContainer.appendChild(dot);
+    }
+    const dots = dotsContainer.querySelectorAll('.g-carousel__dot');
+
+    function goTo(index) {
+      current = Math.max(0, Math.min(index, total - 1));
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+      prevBtn.disabled = current === 0;
+      nextBtn.disabled = current === total - 1;
+    }
+
+    prevBtn.addEventListener('click', () => goTo(current - 1));
+    nextBtn.addEventListener('click', () => goTo(current + 1));
+    goTo(0);
+
+    // Keyboard navigation
+    carousel.setAttribute('tabindex', '0');
+    carousel.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') { goTo(current - 1); e.preventDefault(); }
+      if (e.key === 'ArrowRight') { goTo(current + 1); e.preventDefault(); }
+    });
+
+    // Touch / swipe support
+    let touchStartX = 0;
+    let touchDelta = 0;
+    let isSwiping = false;
+
+    carousel.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+      touchDelta = 0;
+      isSwiping = true;
+      track.style.transition = 'none';
+    }, { passive: true });
+
+    carousel.addEventListener('touchmove', (e) => {
+      if (!isSwiping) return;
+      touchDelta = e.touches[0].clientX - touchStartX;
+      const offset = -(current * 100) + (touchDelta / carousel.offsetWidth) * 100;
+      track.style.transform = 'translateX(' + offset + '%)';
+    }, { passive: true });
+
+    carousel.addEventListener('touchend', () => {
+      if (!isSwiping) return;
+      isSwiping = false;
+      track.style.transition = '';
+      const threshold = carousel.offsetWidth * 0.2;
+      if (touchDelta > threshold) goTo(current - 1);
+      else if (touchDelta < -threshold) goTo(current + 1);
+      else goTo(current);
+    });
+  }
+
+  // ── Lightbox ──
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+
+  if (lightbox) {
+    // Open on any carousel image click
+    document.querySelectorAll('.g-carousel__slide img, .g-carousel__duo-item img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('open');
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+    }
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target !== lightboxImg) closeLightbox();
+    });
+
+    lightbox.querySelector('.g-lightbox__close').addEventListener('click', closeLightbox);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+    });
+  }
+
   // ── FAQ Accordion ──
   document.querySelectorAll('.g-faq__q').forEach(button => {
     button.addEventListener('click', () => {

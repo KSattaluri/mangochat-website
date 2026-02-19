@@ -65,6 +65,7 @@
         <a href="#installation" class="guide__link" data-section="installation">Installation</a>
         <a href="#configuration" class="guide__link" data-section="configuration">Configuration</a>
         <a href="#personalization" class="guide__link" data-section="personalization">Personalization</a>
+        <a href="#screenshots" class="guide__link" data-section="screenshots">Screenshots</a>
         <a href="#pricing" class="guide__link" data-section="pricing">Provider Pricing</a>
         <a href="#known-issues" class="guide__link" data-section="known-issues">Known Issues</a>
         <a href="#faq" class="guide__link" data-section="faq">FAQ</a>
@@ -155,6 +156,77 @@
           <li><strong>Aliases</strong> &mdash; create text shortcuts (e.g. "my email" expands to your address)</li>
           <li><strong>VAD</strong> &mdash; switch between Strict and Lenient voice activity detection</li>
         </ul>
+      </section>
+
+      <!-- Screenshots -->
+      <section id="screenshots" class="g-section">
+        <h2 class="g-section__title">Screenshots</h2>
+        <div class="g-carousel">
+          <div class="g-carousel__viewport">
+            <div class="g-carousel__track">
+              <div class="g-carousel__slide g-carousel__slide--duo">
+                <div class="g-carousel__duo">
+                  <div class="g-carousel__duo-item">
+                    <img src="assets/compact.jpg" alt="Compact dictation bar showing provider status and waveform">
+                    <span class="g-carousel__duo-label">Compact View</span>
+                  </div>
+                  <div class="g-carousel__duo-item">
+                    <img src="assets/compact with screenshot functionality.jpg" alt="Compact bar with screenshot, terminal, and clipboard tools">
+                    <span class="g-carousel__duo-label">With Screenshot Tools</span>
+                  </div>
+                </div>
+                <span class="g-carousel__caption">Dictation Bar</span>
+              </div>
+              <div class="g-carousel__slide">
+                <img src="assets/desktop.jpg" alt="Mango Chat compact bar anchored on Windows desktop, showing minimal footprint" loading="lazy">
+                <span class="g-carousel__caption">Desktop — Minimal Footprint</span>
+              </div>
+              <div class="g-carousel__slide">
+                <img src="assets/provider.jpg" alt="Provider settings showing Deepgram, OpenAI, ElevenLabs, and AssemblyAI configuration" loading="lazy">
+                <span class="g-carousel__caption">Provider Settings</span>
+              </div>
+              <div class="g-carousel__slide">
+                <img src="assets/Session.jpg" alt="Session settings with microphone, hotkey, noise suppression, and screenshot options" loading="lazy">
+                <span class="g-carousel__caption">Session Settings</span>
+              </div>
+              <div class="g-carousel__slide">
+                <img src="assets/browser.jpg" alt="Browser commands tab showing voice-activated URL shortcuts" loading="lazy">
+                <span class="g-carousel__caption">Browser Commands</span>
+              </div>
+              <div class="g-carousel__slide">
+                <img src="assets/text-alias.jpg" alt="Custom text aliases for text expansion shortcuts" loading="lazy">
+                <span class="g-carousel__caption">Custom Text Aliases</span>
+              </div>
+              <div class="g-carousel__slide">
+                <img src="assets/mango-aliases.jpg" alt="Built-in Mango Chat voice commands reference" loading="lazy">
+                <span class="g-carousel__caption">Voice Commands</span>
+              </div>
+              <div class="g-carousel__slide">
+                <img src="assets/appearance.jpg" alt="Appearance settings with theme color, transparency, and monitor options" loading="lazy">
+                <span class="g-carousel__caption">Appearance</span>
+              </div>
+              <div class="g-carousel__slide">
+                <img src="assets/usage.jpg" alt="Usage dashboard tracking time and data across all providers" loading="lazy">
+                <span class="g-carousel__caption">Usage Dashboard</span>
+              </div>
+              <div class="g-carousel__slide">
+                <img src="assets/faq.jpg" alt="Built-in FAQ with common questions and answers" loading="lazy">
+                <span class="g-carousel__caption">In-App FAQ</span>
+              </div>
+              <div class="g-carousel__slide">
+                <img src="assets/about.jpg" alt="About page with version info, updates, and diagnostics" loading="lazy">
+                <span class="g-carousel__caption">About &amp; Updates</span>
+              </div>
+            </div>
+          </div>
+          <button class="g-carousel__arrow g-carousel__arrow--prev" aria-label="Previous screenshot">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="g-carousel__arrow g-carousel__arrow--next" aria-label="Next screenshot">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+          </button>
+          <div class="g-carousel__dots"></div>
+        </div>
       </section>
 
       <!-- Pricing -->
@@ -278,6 +350,12 @@
       </section>
 
     </main>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="g-lightbox" id="lightbox">
+    <button class="g-lightbox__close" aria-label="Close">&times;</button>
+    <img class="g-lightbox__img" id="lightboxImg" src="" alt="">
   </div>
 
   <script src="guide.js"></script>
