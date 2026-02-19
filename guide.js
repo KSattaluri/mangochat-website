@@ -223,11 +223,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const lightboxImg = document.getElementById('lightboxImg');
 
   if (lightbox) {
+    const allImages = Array.from(document.querySelectorAll('.g-carousel__slide img, .g-carousel__duo-item img'));
+    let lightboxIndex = 0;
+    const lbPrev = lightbox.querySelector('.g-lightbox__arrow--prev');
+    const lbNext = lightbox.querySelector('.g-lightbox__arrow--next');
+
+    function showLightboxImage(index) {
+      lightboxIndex = Math.max(0, Math.min(index, allImages.length - 1));
+      lightboxImg.src = allImages[lightboxIndex].src;
+      lightboxImg.alt = allImages[lightboxIndex].alt;
+      lbPrev.disabled = lightboxIndex === 0;
+      lbNext.disabled = lightboxIndex === allImages.length - 1;
+    }
+
     // Open on any carousel image click
-    document.querySelectorAll('.g-carousel__slide img, .g-carousel__duo-item img').forEach(img => {
+    allImages.forEach((img, i) => {
       img.addEventListener('click', () => {
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
+        showLightboxImage(i);
         lightbox.classList.add('open');
       });
     });
@@ -236,14 +248,20 @@ document.addEventListener('DOMContentLoaded', () => {
       lightbox.classList.remove('open');
     }
 
+    lbPrev.addEventListener('click', (e) => { e.stopPropagation(); showLightboxImage(lightboxIndex - 1); });
+    lbNext.addEventListener('click', (e) => { e.stopPropagation(); showLightboxImage(lightboxIndex + 1); });
+
     lightbox.addEventListener('click', (e) => {
-      if (e.target !== lightboxImg) closeLightbox();
+      if (e.target !== lightboxImg && !e.target.closest('.g-lightbox__arrow')) closeLightbox();
     });
 
     lightbox.querySelector('.g-lightbox__close').addEventListener('click', closeLightbox);
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') showLightboxImage(lightboxIndex - 1);
+      if (e.key === 'ArrowRight') showLightboxImage(lightboxIndex + 1);
     });
   }
 
