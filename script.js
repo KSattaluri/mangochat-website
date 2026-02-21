@@ -1,4 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
+  function isWindowsClient() {
+    const uaDataPlatform =
+      navigator.userAgentData && navigator.userAgentData.platform
+        ? navigator.userAgentData.platform
+        : '';
+    const platform = navigator.platform || '';
+    const ua = navigator.userAgent || '';
+    return /win/i.test(uaDataPlatform) || /win/i.test(platform) || /windows/i.test(ua);
+  }
+
+  const isWindows = isWindowsClient();
+  document.querySelectorAll('[data-win-download]').forEach((link) => {
+    if (isWindows) return;
+    link.classList.add('btn--disabled');
+    link.title = 'Windows 10/11 only';
+    link.setAttribute('aria-disabled', 'true');
+    link.addEventListener('click', (e) => e.preventDefault());
+  });
 
   // ── Waveform Visualizer ──
   const canvas = document.getElementById('waveformCanvas');
@@ -371,3 +389,4 @@ document.addEventListener('DOMContentLoaded', () => {
     revealTargets.forEach(el => el.classList.add('visible'));
   }
 });
+

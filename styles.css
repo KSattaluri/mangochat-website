@@ -430,6 +430,12 @@ a:hover { color: var(--accent-hover); }
   transform: translateY(-1px);
 }
 
+.btn.btn--disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
 /* ===== STEP CAROUSEL ===== */
 .carousel {
   display: flex;
